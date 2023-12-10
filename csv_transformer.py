@@ -47,6 +47,10 @@ class OUTPUT_TYPE(Enum):
     SEMICOL = 2
     # 3. will require a KEY,  and concat all values with same keys and uses arrow to separate them, i.e.: "a -> b -> c"
     SUMMARY = 3
+    # 4. summary concat with ":"
+    SUMMARY_CONCAT_COLON = 4
+    # 5. simple concat with ":"
+    CONCAT_COLON = 5
 
 def get_OUTPUT_TYPE_from_string(string):
     try:
@@ -77,6 +81,8 @@ class Rule:
         '''
         key = self.output_col
         output_result = ""
+        
+        current_processed_value = "" # for SUMMARY_CONCAT_COLON
 
         for input_col in self.input_cols:
             if input_col not in input:
@@ -103,6 +109,30 @@ class Rule:
 
                 output_result = self.summary_history
             
+            if self.output_type == OUTPUT_TYPE.SUMMARY_CONCAT_COLON:
+                if self.key == None:
+                    raise ValueError("Key is required for summary output type")
+
+                if current_processed_value == "":
+                    current_processed_value = input[input_col]
+                else:
+                    current_processed_value +=  " : " + input[input_col]
+            
+            if self.output_type == OUTPUT_TYPE.CONCAT_COLON:
+                if output_result == "":
+                    output_result = input[input_col]
+                else:
+                    output_result +=  " : " + input[input_col]
+        
+        if self.output_type == OUTPUT_TYPE.SUMMARY_CONCAT_COLON:
+            if self.summary_key_used != input[self.key]:
+                self.summary_history = current_processed_value
+                self.summary_key_used = input[self.key]
+            else:
+                self.summary_history +=  " -> " + current_processed_value
+            
+            output_result = self.summary_history
+
         if self.output_last_seen == True and output_result == "":
             output_result = self.last_seen_value
         

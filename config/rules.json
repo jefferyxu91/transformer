@@ -38,9 +38,10 @@
 
     "Test Step": {
         "Input_col": [
+            "Day Sequence",
             "Test Scenario/Summary"
         ],
-        "output_type": "OVERWRITE",
+        "output_type": "CONCAT_COLON",
         "output_last_seen": false
     },
 
@@ -85,9 +86,10 @@
 
     "Summary": {
         "Input_col": [
+            "Day Sequence",
             "Test Scenario/Summary"
         ],
-        "output_type": "SUMMARY",
+        "output_type": "SUMMARY_CONCAT_COLON",
         "key": "Test Case ID",
         "output_last_seen": false
     }
