@@ -1,0 +1,94 @@
+{
+    "Entity": {
+        "Input_col": [
+            "Entity"
+        ],
+        "output_type": "OVERWRITE",
+        "output_last_seen": true
+    },
+
+    "User Story": {
+        "Input_col": [
+            "User Story"
+        ],
+        "output_type": "OVERWRITE",
+        "output_last_seen": false
+    },
+
+    "Test Case ID": {
+        "Input_col": [
+            "Test Case ID"
+        ],
+        "output_type": "OVERWRITE",
+        "output_last_seen": true
+    },
+
+    "Prerequisites": {
+        "Input_col": [
+            "Prerequisites",
+            "Counterparty Type",
+            "Counterparty Label",
+            "Settlement Mode",
+            "Trade Matching Status",
+            "SSI Matching Status"
+        ],
+        "output_type": "SEMICOL",
+        "output_last_seen": false
+    },
+
+    "Test Step": {
+        "Input_col": [
+            "Test Scenario/Summary"
+        ],
+        "output_type": "OVERWRITE",
+        "output_last_seen": false
+    },
+
+    "Test Data": {
+        "Input_col": [
+            "Package Typology",
+            "Contract Typology",
+            "Instrument",
+            "System Date",
+            "Trade Date",
+            "Value Date",
+            "Far Value Date",
+            "Fixing Date",
+            "Fix Rate",
+            "Trade Rate (Near)",
+            "Trade Rate (Far)",
+            "Buy CCY (Near)",
+            "Buy Amt (Near)",
+            "Sell CCY (Near)",
+            "Sell Amt (Near)",
+            "Buy CCY (Far)",
+            "Buy Amt (Far)",
+            "Sell CCY (Far)",
+            "Sell Amt (Far)"
+        ],
+        "output_type": "SEMICOL",
+        "output_last_seen": false
+    },
+
+    "Expected Result": {
+        "Input_col": [
+            "OSP validation",
+            "Payment Queues",
+            "Payflow Status in OPAL",
+            "Payment Message",
+            "Confirmation (OPAL Matcher)",
+            "Funding (ILMS/RTGS)"
+        ],
+        "output_type": "OVERWRITE",
+        "output_last_seen": false
+    },
+
+    "Summary": {
+        "Input_col": [
+            "Test Scenario/Summary"
+        ],
+        "output_type": "SUMMARY",
+        "key": "Test Case ID",
+        "output_last_seen": false
+    }
+}
